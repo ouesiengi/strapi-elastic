@@ -177,7 +177,7 @@ module.exports = {
   migrateModel: async (model, params = {}) => {
     const { models, settings } = strapi.config.elasticsearch;
     const targetModel = models.find((item) => item.model === model);
-    const apiQueryKey = `api::${targetModel.model}.${targetModel.content}`;
+    const apiQueryKey = `api::${targetModel.model}.${targetModel.model}`;
 
     const { indexExist } = await strapi.elastic.indices.exists({
       index: targetModel.index,
